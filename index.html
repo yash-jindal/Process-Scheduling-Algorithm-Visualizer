@@ -1,0 +1,190 @@
+<html>
+    <head>
+      <title>
+          OS SCHEDULING ALGORITHMS 
+      </title>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+      
+      <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <span class="heading">
+            SCHEDULING ALGORITHM VISUALIZER
+        </span>
+        <div class="select" id="algorithm">
+            <select name="algo" id="algo" onChange="update()">
+              <option value="none">Select an Algorithm</option>
+              <option value="FCFS">First Come First Serve</option>
+              <option value="SJF">Shortest Job First</option>
+              <option value="PR">Priority Scheduling</option>
+              <option value="RR">Round Robin</option>
+            </select>
+        </div>
+        <div id="entry" class="hide">
+           <label>Process Name</label>
+           <input id="PName" type="text">
+
+           <label>Arrival Time</label>
+           <input id="ATime" type="number">
+
+           <label>Burst Time</label>
+           <input id="BTime" type="number">
+           
+           <button type="button" class="btn btn-warning" onclick="algoSelect()">Add Process</button>
+        </div>
+
+        <div id="entry2" class="hide">
+          <label>Process Name</label>
+          <input id="PName2" type="text">
+
+          <label>Arrival Time</label>
+          <input id="ATime2" type="number">
+
+          <label>Burst Time</label>
+          <input id="BTime2" type="number">
+          
+          <button type="button" class="btn btn-warning" onclick="algoSelect()">Add Process</button>
+       </div>
+
+       <div id="entry3" class="hide">
+        <label>Process Name</label>
+        <input id="PName3" type="text">
+
+        <label>Arrival Time</label>
+        <input id="ATime3" type="number">
+
+        <label>Burst Time</label>
+        <input id="BTime3" type="number">
+
+        <label>Priority</label>
+        <input id="Pr" type="number">
+        
+        <button type="button" class="btn btn-warning" onclick="algoSelect()">Add Process</button>
+     </div>
+     <div id="time_q" class="hide">
+        <label>Time Quantum</label>
+        <input id="tq" type="number">
+        <button type="button" class="btn btn-warning" onclick="RoundRobin()">Set</button>
+     </div>
+     <div id="entry4" class="hide">
+      <label>Process Name</label>
+      <input id="PName4" type="text">
+
+      <label>Arrival Time</label>
+      <input id="ATime4" type="number">
+
+      <label>Burst Time</label>
+      <input id="BTime4" type="number">
+      
+      <button type="button" class="btn btn-warning" onclick="algoSelect()">Add Process</button>
+   </div>
+
+        <div id="tableRow" class="normal hide">
+
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">Process Name</th>
+                    <th scope="col">Arrival Time</th>
+                    <th scope="col">Burst Time</th>
+                  </tr>
+                </thead>
+           <tbody id="insertRow">
+           
+            </tbody>
+           </table>
+           <button type="button" class="btn btn-warning" onclick="result()">Visualize</button>
+
+           
+        </div>
+
+        <div id="tableRow2" class="normal hide">
+
+          <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">Process Name</th>
+                  <th scope="col">Arrival Time</th>
+                  <th scope="col">Burst Time</th>
+                </tr>
+              </thead>
+         <tbody id="insertRow2">
+         
+          </tbody>
+         </table>
+         <button type="button" class="btn btn-warning" onclick="result2()">Visualize</button>
+
+         
+      </div>
+
+      <div id="tableRow3" class="normal hide">
+
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Process Name</th>
+                <th scope="col">Arrival Time</th>
+                <th scope="col">Burst Time</th>
+                <th scope="col">Priority</th>
+              </tr>
+            </thead>
+       <tbody id="insertRow3">
+       
+        </tbody>
+       </table>
+       <button type="button" class="btn btn-warning" onclick="result3()">Visualize</button>
+
+       
+    </div>
+    <div id="tableRow4" class="normal hide">
+
+      <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Process Name</th>
+              <th scope="col">Arrival Time</th>
+              <th scope="col">Burst Time</th>
+            </tr>
+          </thead>
+     <tbody id="insertRow4">
+     
+      </tbody>
+     </table>
+     <button type="button" class="btn btn-warning" onclick="result4()">Visualize</button>
+
+     
+  </div>
+        <div id="resultTable" class="normal hide">
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">Process Name</th>
+                    <th scope="col">Waiting Time</th>
+                    <th scope="col">Turn Around Time</th>
+                  </tr>
+                </thead>
+           <tbody id="newTable">
+           
+            </tbody>
+           </table>
+           <div>
+            <span>Average Waiting Time: </span>
+            <span id="wait" ></span>
+            <br>
+            <span>Average Turnaround Time: </span>
+            <span id="turn"></span>
+          </div>
+          <br>
+          <br>
+          <div id="gantt">
+            <span>Gantt Chart</span>
+            <br>
+          </div>
+        </div>
+
+        
+        
+        
+        <script src="index.js" charset="utf-8"></script>
+    </body>
+</html>
